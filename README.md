@@ -1,4 +1,4 @@
-![validate icon](assets/images/validateit.png)
+![validate icon](assets/images/validateIt.png)
 # ValidateIt
 A powerful and simple to use jQuery validator.
 
