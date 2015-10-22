@@ -15,7 +15,7 @@ A powerful and simple to use jQuery validator.
 
 ##How to install
 
-1. Download Zip.
+1. Download [Zip](https://github.com/harminderbomrah/validateit/archive/master.zip).
 2. Load jQuery.
 2. Load validateit.js or validateit.min.js in the header.
 
@@ -153,13 +153,13 @@ _HTML_
 
 In this example, `check_age` function returns true or false depending on the input value. In HTML, we just need to specify validation name in `data-fv-validations` and a message in `data-fv-messages`. The above example will first check for numeric input and then the custom created validation `check_age`.
 
-> Please note that your custom created validation should always return **`true`** or **`false`**.
+> Please note that your custom created rule should always return **`true`** or **`false`**.
 
 ****** 
 
 ##Overriding in-built rules
 
-Overriding in-built validations are easy. Just add your validation function to instance's `rules` with same name and it will be overriden.
+Overriding in-built rules are easy. Just add your rule function to instance's `rules` with same name and it will be overriden.
 
 Example
 
@@ -177,7 +177,9 @@ If you want to override _required_ rule then simply do the following.
 	.text-error //applied to error message block
 	.validation-error //applied to field 
 
-You can customize error messages by creating CSS rules for following classes. The first class is applied to the error message block and the second class is applied to the field.
+You can customize error messages by creating CSS rules for following classes. The `text-error` is applied to the error message block and the `validation-error` is applied to the field.
+
+******
 
 ##Author
 
