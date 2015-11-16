@@ -27,9 +27,6 @@
 			no_space : function(value){
 				return (/\s/.test(value) ? false : true);
 			},
-			lowercase : function(value){
-				return (value == value.toLowerCase() ? true : false);
-			},
 			email : function(value){
 				var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	    		return re.test(value);
