@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <title>jQuery ValidateIt</title>
+  <link href="assets/images/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700,700italic,400italic ' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/github.min.css">
+  <link rel="stylesheet" href="assets/stylesheets/global.css">
+  <script type="text/javascript" src="src/jquery.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="src/validateit.min.js" charset="utf-8"></script>
+</head>
+<body>
+  <header>
+    <div class="inner">
+        <img src="assets/images/validateit.png" alt="">
+        <p class="text">Powerful and simple to use jQuery validator.</p>
+        <a class="button" href="https://github.com/harminderbomrah/validateit/archive/master.zip"><i class="icon fa fa-download"></i>DOWNLOAD</a>
+        <a class="button" href="https://github.com/harminderbomrah/validateit" target="_blank"><i class="icon fa fa-github"></i>FORK ON GITHUB</a>
+    </div>
+    <div class="menu-wrapper">
+      
+      <ul class="menu">
+        <li class="take-to-top"><a class="take-to-top-btn" href=""><img class="take-to-top-icon" src="assets/images/validateIt_icon.png" /></a></li>
+        <li><a href="#how-to-install">How to install</a></li>
+        <li><a href="#example">Example</a></li>
+        <li><a href="#code">Code</a></li>
+        <li><a href="#rules">Rules</a></li>
+        <li><a href="#methods">Methods</a></li>
+        <li><a href="#creating-rules">Creating Rules</a></li>
+        <li><a href="#overriding-rules">Overriding Rules</a></li>
+        <li><a href="#customizing-errors">Customizing Errors</a></li>
+      </ul>
+    </div>
+  </header>
+  <div>
+    <section id="how-to-install">
+      <div class="inner">
+        <div class="text-c">
+          <h1 class="title right">
+            <span>How to install</span>
+            <i class="fa fa-download"></i>
+          </h1>
+          <ol>
+            <li>
+              Download.
+            </li>
+            <li>
+              Load <i><b>jQuery</b></i> (You can find this file in the <b>src</b> folder or use cdn).
+            </li>
+            <li>
+              Load <i><b>validateit.js</b></i> or the minified version <i><b>validateit.min.js</b></i> (You can find these files in the <b>src</b> folder).
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+    <section id="example">
+      <div class="inner example">
+        <h1 class="title">Example</h1>
+        <div class="element A1">
+          <form action="" method="post" id="simple-form">
+            <h4>Simple Form</h4>
+            <div class="form-field">
+              <div class="form-label">
+                <label>Name :</label>
+              </div>
+              <input name="name" data-fv-validations="required;alphabets;" data-fv-messages="Cannot be empty.; Only alphabets allowed.;" />
+            </div>
+            <div class="form-field">
+              <div class="form-label">
+                <label>Username :</label>
+              </div>
+              <input name="username" data-fv-validations="required;no_space;" data-fv-messages="Cannot be empty.; No space allowed.;" />
+            </div>
+            <div class="form-field">
+              <div class="form-label">
+                <label>Gender :</label>
+              </div>
+              <select name="gender" data-fv-validations="required;" data-fv-messages="Cannot be empty.;">
+                <option value=""> Select Gender </option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <div class="form-label">
+                <label>Age :</label>
+              </div>
+              <input name="age" data-fv-validations="required;numeric;" data-fv-messages="Cannot be empty.; Only number allowed.;" />
+            </div>
+            <div class="form-actions">
+              <input type="submit" value="Submit" class="btn" />
+              <input type="reset" value="Reset" class="btn" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <section id="code">
+      <div class="inner">
+        <div class="text-c">
+          <h1 class="title">
+            <i class="fa fa-code"></i>
+            <span>Code</span>
+          </h1>
+          <p>
+            <strong>HTML</strong>
+            <pre><code class="html">
+   &lt;form action="" method="post" id="simple-form"&gt;
+    &lt;h4&gt;Simple Form&lt;/h4&gt;
+    &lt;div class="form-field"&gt;
+      &lt;div class="form-label"&gt;
+        &lt;label&gt;Name :&lt;/label&gt;
+      &lt;/div&gt;
+      &lt;input name="name" data-fv-validations="required;alphabets;" data-fv-messages="Cannot be empty.; Only alphabets allowed.;" /&gt;
+    &lt;/div&gt;
+    &lt;div class="form-field"&gt;
+      &lt;div class="form-label"&gt;
+        &lt;label&gt;Username :&lt;/label&gt;
+      &lt;/div&gt;
+      &lt;input name="username" data-fv-validations="required;no_space;" data-fv-messages="Cannot be empty.; No space allowed.;" /&gt;
+    &lt;/div&gt;
+    &lt;div class="form-field"&gt;
+      &lt;div class="form-label"&gt;
+        &lt;label&gt;Gender :&lt;/label&gt;
+      &lt;/div&gt;
+      &lt;select name="gender" data-fv-validations="required;" data-fv-messages="Cannot be empty.;"&gt;
+        &lt;option value=""&gt; Select Gender &lt;/option&gt;
+        &lt;option value="male"&gt;Male&lt;/option&gt;
+        &lt;option value="female"&gt;Female&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/div&gt;
+    &lt;div class="form-field"&gt;
+      &lt;div class="form-label"&gt;
+        &lt;label&gt;Age :&lt;/label&gt;
+      &lt;/div&gt;
+      &lt;input name="age" data-fv-validations="required;numeric;" data-fv-messages="Cannot be empty.; Only number allowed.;" /&gt;
+    &lt;/div&gt;
+    &lt;div class="form-actions"&gt;
+      &lt;input type="submit" value="Submit" class="btn" /&gt;
+      &lt;input type="reset" value="Reset" class="btn" /&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+            </code></pre>
+          </p>
+          <br>
+          <p>
+            <strong>Javascript</strong>
+            <pre><code>var simpleForm = $("#simple-form").validateIt();</code></pre>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="rules">
+      <div class="inner">
+        <div class="text-c">
+          <h1 class="title right">
+            Rules
+             <i class="fa fa-cog"></i>
+          </h1>
+          <table class="rules">
+            <thead>
+            <tr>
+              <th>Rule</th>
+              <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>required</b></td>
+                <td><i>Makes a field mandatory</i></td>
+              </tr>
+              <tr>
+                <td><b>no_space</b></td>
+                <td><i>Fails the validation if a white space is found</i></td>
+              </tr>
+              <tr>
+                <td><b>lowercase</b></td>
+                <td><i>All letters must be lowercase</i></td>
+              </tr>
+              <tr>
+                <td><b>uppercase</b></td>
+                <td><i>All letters must be uppercase</i></td>
+              </tr>
+              <tr>
+                <td><b>email</b></td>
+                <td><i>Checks for a valid email address</i></td>
+              </tr>
+              <tr>
+                <td><b>url</b></td>
+                <td><i>Checks for a valid URL</i></td>
+              </tr>
+              <tr>
+                <td><b>numeric</b></td>
+                <td><i>All characters must be numbers</i></td>
+              </tr>
+               <tr>
+                <td><b>alphabets</b></td>
+                <td><i>All characters must be alphabets</i></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section id="methods">
+      <div class="inner">
+        <div class="text-c">
+          <h1 class="title">
+            <i class="fa fa-wrench"></i>
+            <span>Methods</span>
+          </h1>
+          <ol>
+            <li>
+              <h3>.form</h3>
+              This is the jQuery object of the form. You can use this normally like all other jQuery objects.<br><br>
+              Example
+              <pre>
+                <code>
+simpleForm.form //returns the jQuery of the form same as $("#simple-form")
+                </code>
+              </pre>
+            </li>
+            <li>
+              <h3>.reset()</h3>
+              Resets the form removing error messages and classes from fields.<br><br>
+              Example <br>
+              Let's take the above example as reference.
+              <pre>
+                <code>
+// get the reset button and call the reset() method on the form validateIt instance.
+      simpleForm.form
+                .find("input[type=reset]")
+                .on("click",function(){
+                    simpleForm.reset();
+                    return false;
+                  })  
+                </code>
+              </pre>
+            </li>
+             <li>
+              <h3>.isFormValidated()</h3>
+                This is useful for validating your form from your javascript especially when you want to trigger submit outside the form. Also can be very useful when you want to submit the form using AJAX or want to manipulate data before submitting. It will return <b>true</b> or <b>false</b>. In case form fails to validate, calling this method will automatically put the error messages next to their respective fields and the page will be scrolled to the first error.<br><br>
+              Example <br>
+              Let's validate and submit form by clicking the button below.
+              <div>
+                <button class="button" id="btn-to-submit-form">Validate &amp; Submit</button>
+              </div> 
+              <br />
+              HTML
+              <pre>
+                <code>
+  &lt;button class="button" id="btn-to-submit-form"&gt;Validate &amp; Submit&lt;/button&gt;
+                </code>
+              </pre>
+              Javascript
+              <pre>
+                <code>
+ $("#btn-to-submit-form").on("click",function(){
+      if(simpleForm.isFormValidated()){  
+        simpleForm.form.submit();
+      }
+  })
+                </code>
+              </pre>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+    <section id="creating-rules">
+      <div class="inner">
+        <div class="text-c">
+          <h1 class="title right">
+            Creating your own rules
+            <i class="fa fa-scissors"></i>
+          </h1>
+          <p>
+            With ValidateIt you can create your own rules and assign error messages to them very easily. You can create as many rules as you want for a particular instance. This gives you the power to have same rule name but they can work differently for different instances. For creating new rules, just add them to your instance's <em>rules</em>.
+          </p>
+          Example <br>
+          Let's create a rule which checks the age. The validation should fail if the age is =&lt; 17.
+          <div class="inline-example">
+            <form action="" id="example-form" method="post" >
+              <div class="input-holder">
+                Age : <input type="text" data-fv-validations="numeric;check_age;" data-fv-messages="Must be a number.;Must be greater than 17.;" name="age">
+              </div>
+              <input type="submit" value="Submit" class="button"> 
+            </form>
+          </div>
+          <p>HTML</p>
+          <pre><code>
+ &lt;form action="" id="example-form" method="post" &gt;
+  &lt;div class="input-holder"&gt;
+    Age : &lt;input type="text" data-fv-validations="numeric;check_age;" data-fv-messages="Must be a number.;Must be greater than 17.;" name="age"&gt;
+  &lt;/div&gt;
+  &lt;input type="submit" value="Submit" class="button"&gt; 
+ &lt;/form&gt;
+          </code></pre>
+          Javascript
+          <pre><code>
+  var exampleForm = $("#example-form").validateIt();
+
+  exampleForm.rules.check_age = function(value, element){
+    return (value > 18);
+  }
+          </code></pre>
+          <p>Two parameters are passed to all custom made functions.</p>
+          <table class="rules">
+            <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><b>value</b></td>
+                    <td>The inputted value in the field. You can directly use this value to check if it is acceptable or not.</td>
+                </tr>
+                <tr>
+                    <td><b>element</b></td>
+                    <td>The element being checked. You can perform DOM manipulations or get the type etc.</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+          In the above example, <b>check_age</b> function returns <b><i>true</i></b> or <b><i>false</i></b> depending on the input value. In HTML, we just need to specify validation name in data-fv-validations and a message in data-fv-messages. The above example will first check for numeric input and then the custom created validation check_age.
+        </p>
+        <p><strong>PS : Please note that your custom created rule should always return <i>true</i> or <i>false</i>.</strong></p>
+        </div>
+      </div>
+    </section>
+    <section id="overriding-rules">
+      <div class="inner">
+        <div class="text-c">
+          <h1 class="title">
+            <i class="fa fa-bicycle"></i>
+            <span>Overriding in-built rules</span>
+          </h1>
+         <p>
+          Overriding in-built rules are easy. Just add your rule function to instance's <b>rules</b> with same name and it will be overriden.
+         </p>
+          Example <br/>
+          If you want to override required rule then simply do the following.
+          <p>Javascript</p>
+          <pre><code>
+  simpleForm.rules.required = function(){
+
+    /* test the value with your modified rule and return true or false */
+
+  }
+          </code></pre>
+        </div>
+      </div>
+    </section>
+     <section id="customizing-errors">
+      <div class="inner">
+        <div class="text-c">
+          <h1 class="title right">
+            <span>Customizing error messages</span>
+            <i class="fa fa-pencil"></i>
+          </h1>
+          <p>
+            You can customize error messages by creating CSS rules for following classes. The <b>text-error</b> is applied to the error message block and the <b>validation-error</b> is applied to the field.
+          </p>
+          <pre><code>
+  .text-error //applied to error message block
+  .validation-error //applied to field 
+          </code></pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <footer>
+    <div class="inner">
+      <span class="author">Author : <strong>Harry Bomrah</strong></span>
+      <span class="license">License : <strong>MIT</strong></span>
+    </div>
+  </footer>
+</body>
+<script>
+  $(document).ready(function($) {
+    var simpleForm = $("#simple-form").validateIt();
+    simpleForm.form.find("input[type=reset]").on("click",function(){
+      simpleForm.reset();
+      return false;
+    }) 
+
+    $("#btn-to-submit-form").on("click",function(){
+      if(simpleForm.isFormValidated()){
+        simpleForm.form.submit();
+      }
+    })
+
+    var exampleForm = $("#example-form").validateIt();
+    exampleForm.rules.check_age = function(value, element){
+      return (value >= 18);
+    }
+
+
+    $(".menu a").on("click",function(){
+      if(!$(this).hasClass("take-to-top-btn")){
+        var el = $(this).attr("href");
+        el = $(el);
+        $("*").animate({scrollTop:el.offset().top - 30}, '300');
+      }else{
+        $("*").animate({scrollTop:0}, '300');
+      }
+      return false;
+    })
+
+    var menuWrapper = $(".menu-wrapper"),
+        icon = $(".take-to-top"),
+        height = $("header .inner").height() + $("header .inner").offset().top;
+    $(window).on("scroll",function(event){
+      if(!menuWrapper.hasClass("fix")){
+        if($(this).scrollTop() > height){
+          menuWrapper.addClass("fix");
+          icon.addClass("fix");
+        }
+      }else{
+        if($(this).scrollTop() < height){
+          menuWrapper.removeClass("fix");
+          icon.removeClass("fix");
+        }
+      }
+    })
+
+    $('pre code').each(function(i, block) {
+      hljs.highlightBlock(block);
+    });
+  });
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-55663014-1', 'auto');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+
+</script>
+</html>
