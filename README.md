@@ -1,6 +1,6 @@
 ![validate icon](assets/images/validateIt.png)
 # ValidateIt
-A powerful and simple to use jQuery validator.
+A powerful and simple to use jQuery validator. With ValidateIt, you can create your own rules with ease and lot of flexibility.
 
 > Requires jQuery  
 > License MIT
@@ -43,7 +43,7 @@ ValidateIt will start checking from the first validation. In the above example, 
 
 The form will be validated on form submit. If validation fails ValidateIt will stop the form from submitting and put the appropriate message next to the field. 
 
-******
+
 
 ##Rules
 
@@ -85,9 +85,18 @@ The form will be validated on form submit. If validation fails ValidateIt will s
 		</tr>
 	</tbody>
 </table>
-******
+
 
 ##Methods
+
+**`.form`**
+
+This is the jQuery object of the form. You can use this normally like all other jQuery objects.
+
+Example
+
+	var myForm = $("form#new_form").validateIt();
+	myForm.form;
 
 **`.reset()`**
 
@@ -100,7 +109,7 @@ Example
 
 **`.isFormValidated()`**
 
-This is useful for validating your form from your javascript especially when you want trigger submit outside the form. Also can be very useful when you want to submit the form using AJAX or want to manipulate data before submitting. It will return `true` or `false`. In case form fails to validate, calling this method will automatically put the error messages next to its respective fields.
+This is useful for validating your form from your javascript especially when you want to trigger submit outside the form. Also can be very useful when you want to submit the form using AJAX or want to manipulate data before submitting. It will return `true` or `false`. In case form fails to validate, calling this method will automatically put the error messages next to their respective fields and the page will be scrolled to the first error.
 
 Example
 
@@ -111,7 +120,7 @@ Example
 		}	
 	})
 
-*******
+
 
 ##Creating your own rules
 
@@ -154,8 +163,7 @@ _HTML_
 In this example, `check_age` function returns true or false depending on the input value. In HTML, we just need to specify validation name in `data-fv-validations` and a message in `data-fv-messages`. The above example will first check for numeric input and then the custom created validation `check_age`.
 
 > Please note that your custom created rule should always return **`true`** or **`false`**.
-
-****** 
+ 
 
 ##Overriding in-built rules
 
@@ -170,7 +178,6 @@ If you want to override _required_ rule then simply do the following.
 		// test the value with your modified rule and return true or false
 	}
 
-******
 
 ##Customizing error messages
 
@@ -179,7 +186,6 @@ If you want to override _required_ rule then simply do the following.
 
 You can customize error messages by creating CSS rules for following classes. The `text-error` is applied to the error message block and the `validation-error` is applied to the field.
 
-******
 
 ##Author
 

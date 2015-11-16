@@ -40,6 +40,18 @@
 				}
 				var reg = new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/);
 				return reg.test(value);
+			},
+			numeric : function(value){
+				return !isNaN(parseFloat(value)) && isFinite(value);
+			},
+			alphabets : function(value){
+				return /^[a-zA-Z]+$/.test(value);
+			},
+			lowercase : function(value){
+				return /^[a-z]+$/.test(value);
+			},
+			uppercase : function(value){
+				return /^[A-Z]+$/.test(value);
 			}
 		}
 
@@ -56,6 +68,7 @@
 		this.reset = function(){
 			document.getElementById(fv.form.attr("id")).reset();
 			fv.form.find(".validator_error_class").remove();
+			fv.form.find(".validation-error").removeClass("validation-error");
 		}
 
 		var _attachSubmitHandler = function(){
@@ -89,8 +102,8 @@
 				}
 			})
 			if(failed_elements.length){
-				var offset = failed_elements[0].offset().top - fv.form.offset().top + fv.form.scrollTop();
-				fv.form.parent().animate({scrollTop:offset-50}, '300', 'swing');
+				var offset = failed_elements[0].offset().top - 100;
+				$("*").animate({scrollTop:offset}, '300');
 				return false;
 			}else{
 				return true;
