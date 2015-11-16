@@ -83,6 +83,10 @@ The form will be validated on form submit. If validation fails ValidateIt will s
 			<td><b>numeric</b></td>
 			<td><i>All characters must be numbers</i></td>
 		</tr>
+		 <tr>
+            <td><b>alphabets</b></td>
+            <td><i>All characters must be alphabets</i></td>
+          </tr>
 	</tbody>
 </table>
 
