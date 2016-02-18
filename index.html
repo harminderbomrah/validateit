@@ -50,7 +50,7 @@
               Download.
             </li>
             <li>
-              Load <i><b>jQuery</b></i> (You can find this file in the <b>src</b> folder or use cdn).
+              Load the <i><b>jQuery</b></i> (You can find this file in the <b>src</b> folder or use cdn).
             </li>
             <li>
               Load <i><b>validateit.js</b></i> or the minified version <i><b>validateit.min.js</b></i> (You can find these files in the <b>src</b> folder).
@@ -64,7 +64,7 @@
         <h1 class="title">Example</h1>
         <div class="element A1">
           <form action="" method="post" id="simple-form">
-            <h4>Simple Form</h4>
+            <h4>Basic Form</h4>
             <div class="form-field">
               <div class="form-label">
                 <label>Name :</label>
@@ -218,7 +218,7 @@
           <ol>
             <li>
               <h3>.form</h3>
-              This is the jQuery object of the form. You can use this normally like all other jQuery objects.<br><br>
+              This is the jQuery object of the form. You can use this like any other jQuery object.<br><br>
               Example
               <pre>
                 <code>
@@ -228,7 +228,7 @@ simpleForm.form //returns the jQuery of the form same as $("#simple-form")
             </li>
             <li>
               <h3>.reset()</h3>
-              Resets the form removing error messages and classes from fields.<br><br>
+              This will reset the form by removing all error messages and classes from fields.<br><br>
               Example <br>
               Let's take the above example as reference.
               <pre>
@@ -245,7 +245,7 @@ simpleForm.form //returns the jQuery of the form same as $("#simple-form")
             </li>
              <li>
               <h3>.isFormValidated()</h3>
-                This is useful for validating your form from your javascript especially when you want to trigger submit outside the form. Also can be very useful when you want to submit the form using AJAX or want to manipulate data before submitting. It will return <b>true</b> or <b>false</b>. In case form fails to validate, calling this method will automatically put the error messages next to their respective fields and the page will be scrolled to the first error.<br><br>
+                This is useful for validating your form using your javascript; especially when you want to trigger submit outside the form. It can also be used when you want to submit the form using AJAX or want to manipulate data before submitting the form. It will return <b>true</b> or <b>false</b>value for success and failure respectively. In case the form fails to validate, calling this method will automatically put the error messages next to their respective fields and it will scroll the page up to the first error message.<br><br>
               Example <br>
               Let's validate and submit form by clicking the button below.
               <div>
@@ -281,7 +281,7 @@ simpleForm.form //returns the jQuery of the form same as $("#simple-form")
             <i class="fa fa-scissors"></i>
           </h1>
           <p>
-            With ValidateIt you can create your own rules and assign error messages to them very easily. You can create as many rules as you want for a particular instance. This gives you the power to have same rule name but they can work differently for different instances. For creating new rules, just add them to your instance's <em>rules</em>.
+            With ValidateIt you can create your own rules and assign error messages to them very easily. You can create as many rules as you want for a particular instance. This gives you the power to have a same rule name but it can work differently for different instances- just like polymorphism. For creating new rules, just add them to your instance's <em>rules</em>.
           </p>
           Example <br>
           Let's create a rule which checks the age. The validation should fail if the age is =&lt; 17.
@@ -321,7 +321,7 @@ simpleForm.form //returns the jQuery of the form same as $("#simple-form")
             <tbody>
                 <tr>
                     <td><b>value</b></td>
-                    <td>The inputted value in the field. You can directly use this value to check if it is acceptable or not.</td>
+                    <td>The value entered in the field. You can directly use this value to check if it is acceptable or not.</td>
                 </tr>
                 <tr>
                     <td><b>element</b></td>
@@ -330,7 +330,7 @@ simpleForm.form //returns the jQuery of the form same as $("#simple-form")
             </tbody>
         </table>
         <p>
-          In the above example, <b>check_age</b> function returns <b><i>true</i></b> or <b><i>false</i></b> depending on the input value. In HTML, we just need to specify validation name in data-fv-validations and a message in data-fv-messages. The above example will first check for numeric input and then the custom created validation check_age.
+          In the above example, <b>check_age</b> function returns <b><i>true</i></b> or <b><i>false</i></b> depending on the input value. In HTML, we just need to specify validation name in data-fv-validations and a message in data-fv-messages. The above example will first check for numeric input and then the custom-created validation check_age.
         </p>
         <p><strong>PS : Please note that your custom created rule should always return <i>true</i> or <i>false</i>.</strong></p>
         </div>
@@ -344,7 +344,7 @@ simpleForm.form //returns the jQuery of the form same as $("#simple-form")
             <span>Overriding in-built rules</span>
           </h1>
          <p>
-          Overriding in-built rules are easy. Just add your rule function to instance's <b>rules</b> with same name and it will be overriden.
+          Overriding in-built rules is quite easy. Just add your rule function to the instance's <b>rules</b> with same name and it will be overriden.
          </p>
           Example <br/>
           If you want to override required rule then simply do the following.
