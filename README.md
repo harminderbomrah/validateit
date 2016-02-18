@@ -1,6 +1,6 @@
 ![validate icon](assets/images/validateIt.png)
 # ValidateIt
-A powerful and simple to use jQuery validator. With ValidateIt, you can create your own rules with ease and lot of flexibility.
+A powerful and easy to use jQuery validator. With ValidateIt, you can create your own rules with a lot of ease and flexibility.
 
 > Requires jQuery  
 > License MIT
@@ -15,9 +15,9 @@ A powerful and simple to use jQuery validator. With ValidateIt, you can create y
 
 ##How to install
 
-1. Download [Zip](https://github.com/harminderbomrah/validateit/archive/master.zip).
-2. Load jQuery.
-2. Load validateit.js or validateit.min.js in the header.
+1. Download the [Zip](https://github.com/harminderbomrah/validateit/archive/master.zip).
+2. Load the jQuery file.
+3. Load validateit.js or validateit.min.js in the header.
 
 ##How to use
 
@@ -33,15 +33,15 @@ Example
 
 	<input type="text" data-fv-validations="required;numeric;no_space;" data-fv-messages="Cannot be empty.;Must be a number.; Cannot have an empty space.;" />
 	
-Please remember to put a **semi-colon** `;` after every validation and message. If your validation or message doesn't end with `;` ValidateIt will ignore that validation.
+Please remember to put a **semi-colon** `;` after every validation and message. If your validation or message doesn't end with a `;` ValidateIt will ignore that validation.
 
-ValidateIt will start checking from the first validation. In the above example, ValidateIt will check `required` then `numeric` then `no_space`. If the first validation passes then it will move to second one. If the validation fails then ValidateIt will put the validation's error message next to the field.
+ValidateIt will always start checking from the first validation you write. In the above example, ValidateIt will first check `required`, then `numeric`, and then `no_space`. If the first validation passes then only will it move to the second one. If any validation fails, ValidateIt will put the validation's error message next to the field.
 
 **Javascript**
 
 	$("form#new_form").validateIt();
 
-The form will be validated on form submit. If validation fails ValidateIt will stop the form from submitting and put the appropriate message next to the field. 
+The form will be validated on form submit event. If validation fails, ValidateIt will stop the form from submitting and put an appropriate message next to the field. 
 
 
 
@@ -95,7 +95,7 @@ The form will be validated on form submit. If validation fails ValidateIt will s
 
 **`.form`**
 
-This is the jQuery object of the form. You can use this normally like all other jQuery objects.
+This is the jQuery object of the form. You can use this like any other jQuery object.
 
 Example
 
@@ -113,7 +113,7 @@ Example
 
 **`.isFormValidated()`**
 
-This is useful for validating your form from your javascript especially when you want to trigger submit outside the form. Also can be very useful when you want to submit the form using AJAX or want to manipulate data before submitting. It will return `true` or `false`. In case form fails to validate, calling this method will automatically put the error messages next to their respective fields and the page will be scrolled to the first error.
+This is useful for validating your form using your javascript; especially when you want to trigger submit outside the form. It can also be used when you want to submit the form using AJAX or want to manipulate data before submitting the form. It will return `true` or `false` value for success and failure respectively. In case the form fails to validate, calling this method will automatically put the error messages next to their respective fields and it will scroll the page up to the first error message.
 
 Example
 
@@ -128,7 +128,7 @@ Example
 
 ##Creating your own rules
 
-With ValidateIt you can create your own rules and assign error messages to them very easily. You can create as many rules as you want for a particular instance. This gives you the power to have same rule name but they can work differently for different instances. For creating new rules, just add them to your instance's `rules`.
+With ValidateIt you can create your own rules and assign error messages to them very easily. You can create as many rules as you want for a particular instance. This gives you the power to have a same rule name but it can work differently for different instances - just like polymorphism. For creating new rules, just add them to your instance's `rules`.
 
 Example
 
@@ -151,11 +151,11 @@ Two parameters are passed to all custom made functions.
 	<tbody>
 		<tr>
 			<td><i>value</i></td>
-			<td>The inputted value in the field. You can directly use this value to check if it is acceptable or not.</td>
+			<td>The value entered in the field. You can directly use this value to check if it is acceptable or not.</td>
 		</tr>
 		<tr>
 			<td><i>element</i></td>
-			<td>The element being checked. You can perform DOM manipulations or get the type etc.</td>
+			<td>The element being checked. You can perform DOM manipulations or get the type or do quite a few other things based on your requirement.</td>
 		</tr>
 	</tbody>
 </table>
@@ -164,14 +164,14 @@ _HTML_
 
 	<input type="text" data-fv-validations="numeric;check_age;" data-fv-messages="Must be a number.;Must be greater than 17;" />
 
-In this example, `check_age` function returns true or false depending on the input value. In HTML, we just need to specify validation name in `data-fv-validations` and a message in `data-fv-messages`. The above example will first check for numeric input and then the custom created validation `check_age`.
+In this example, `check_age` function returns true or false depending on the input value. In HTML, we just need to specify validation name in `data-fv-validations` and a message in `data-fv-messages`. The above example will first check for numeric input and then the custom-created validation `check_age`.
 
 > Please note that your custom created rule should always return **`true`** or **`false`**.
  
 
 ##Overriding in-built rules
 
-Overriding in-built rules are easy. Just add your rule function to instance's `rules` with same name and it will be overriden.
+Overriding in-built rules is quite easy. Just add your rule function to the instance's `rules` with same name and it will be overriden.
 
 Example
 
@@ -188,7 +188,7 @@ If you want to override _required_ rule then simply do the following.
 	.text-error //applied to error message block
 	.validation-error //applied to field 
 
-You can customize error messages by creating CSS rules for following classes. The `text-error` is applied to the error message block and the `validation-error` is applied to the field.
+You can customize error messages by creating CSS rules for the classes mentioned above. The `text-error` is applied to the error message block and the `validation-error` is applied to the field.
 
 
 ##Author
