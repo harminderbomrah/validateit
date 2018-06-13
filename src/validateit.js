@@ -12,14 +12,22 @@
 				switch($(element).prop("tagName")){
 					case "INPUT":
 						switch(element.attr("type")){
+							case "file":
 							case "text":
 								return (value == "" ? false : true);
 							break;
 							case "checkbox":
 								return element.is(":checked");
 							break;
+							case "radio":
+								var n = element.attr("name");
+								return fv.form.find("input[name='" + n + "']").is(":checked");
+							break;
 						}
 					case "SELECT":
+						return (value == "" ? false : true);
+					break;
+					case "TEXTAREA":
 						return (value == "" ? false : true);
 					break;
 				}
