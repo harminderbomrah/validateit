@@ -13,13 +13,13 @@ A powerful and easy to use jQuery validator. With ValidateIt, you can create you
 6. [Overriding in-built rules](#overriding-in-built-rules)
 7. [Customizing error messages](#customizing-error-messages)
 
-##How to install
+## How to install
 
 1. Download the [Zip](https://github.com/harminderbomrah/validateit/archive/master.zip).
 2. Load the jQuery file.
 3. Load validateit.js or validateit.min.js in the header.
 
-##How to use
+## How to use
 
 **HTML**
 
@@ -45,7 +45,7 @@ The form will be validated on form submit event. If validation fails, ValidateIt
 
 
 
-##Rules
+## Rules
 
 <table>
 	<thead>
@@ -91,7 +91,7 @@ The form will be validated on form submit event. If validation fails, ValidateIt
 </table>
 
 
-##Methods
+## Methods
 
 **`.form`**
 
@@ -126,7 +126,7 @@ Example
 
 
 
-##Creating your own rules
+## Creating your own rules
 
 With ValidateIt you can create your own rules and assign error messages to them very easily. You can create as many rules as you want for a particular instance. This gives you the power to have a same rule name but it can work differently for different instances - just like polymorphism. For creating new rules, just add them to your instance's `rules`.
 
@@ -169,7 +169,7 @@ In this example, `check_age` function returns true or false depending on the inp
 > Please note that your custom created rule should always return **`true`** or **`false`**.
  
 
-##Overriding in-built rules
+## Overriding in-built rules
 
 Overriding in-built rules is quite easy. Just add your rule function to the instance's `rules` with same name and it will be overriden.
 
@@ -183,7 +183,7 @@ If you want to override _required_ rule then simply do the following.
 	}
 
 
-##Customizing error messages
+## Customizing error messages
 
 	.text-error //applied to error message block
 	.validation-error //applied to field 
@@ -191,17 +191,10 @@ If you want to override _required_ rule then simply do the following.
 You can customize error messages by creating CSS rules for the classes mentioned above. The `text-error` is applied to the error message block and the `validation-error` is applied to the field.
 
 
-##Author
+## Author
 
 **Harry Bomrah**
 
-##License
+## License
 
 MIT License
-
-
-
-
-
-
-
