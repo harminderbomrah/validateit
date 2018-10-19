@@ -84,9 +84,13 @@ The form will be validated on form submit event. If validation fails, ValidateIt
 			<td><i>All characters must be numbers</i></td>
 		</tr>
 		 <tr>
-            <td><b>alphabets</b></td>
-            <td><i>All characters must be alphabets</i></td>
-          </tr>
+					<td><b>alphabets</b></td>
+					<td><i>All characters must be alphabets</i></td>
+			</tr>
+			<tr>
+					<td><b>mobilenumber</b></td>
+					<td><i>Checks for a valid phone number with a country code</i></td>
+			</tr>
 	</tbody>
 </table>
 
