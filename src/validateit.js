@@ -85,6 +85,36 @@
             })
         }
 
+        this.isElementValidated = function (dom) {
+            if (dom == undefined || !(dom instanceof jQuery) ) {
+                throw new FormValidator.Exceptions.invalidElement;
+            }
+            var key = dom.attr("id"),
+                element = elements_data[key],
+                validators = element.validators,
+                messages = element.messages,
+                validated = true,
+                el = dom;
+            for (var i = 0; i < validators.length; i++) {
+                var error_span = (fv.form.find("div[for=" + key + "]").length ? $("div[for=" + key + "]") : $("<div class='validator_error_class text-error' for='" + key + "'></div>"));
+                if (typeof fv.rules[validators[i]] == "function") {
+                    if (!fv.rules[validators[i]](el.val(), el)) {
+                        error_span.text(messages[i]);
+                        el.after(error_span);
+                        el.addClass("validation-error");
+                        validated = false;
+                        break;
+                    } else {
+                        error_span.remove();
+                        el.removeClass("validation-error");
+                    }
+                } else {
+                    console.info("Not validating for " + validators[i] + ". Skipping.");
+                }
+            }
+            return validated;
+        }
+
         this.isFormValidated = function () {
             failed_elements = [];
             $.each(elements_data, function (key, element) {
@@ -157,7 +187,15 @@
         }
     }
 
+    FormValidator.Exceptions.invalidElement = function () {
+        this.message = "Element is invalid jQuery Object."
+        this.toString = function () {
+            return this.message;
+        }
+    }
+
     FormValidator.Exceptions.nameAttrNotFound.prototype = new Error();
+    FormValidator.Exceptions.invalidElement.prototype = new Error();
 
     $.fn.validateIt = function () {
         return new FormValidator(this);
