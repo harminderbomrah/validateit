@@ -100,7 +100,9 @@
                 if (typeof fv.rules[validators[i]] == "function") {
                     if (!fv.rules[validators[i]](el.val(), el)) {
                         error_span.text(messages[i]);
-                        el.after(error_span);
+                        if (fv.form.find("div[for=" + key + "]").length == 0){
+                            el.after(error_span);
+                        }
                         el.addClass("validation-error");
                         validated = false;
                         break;
@@ -126,7 +128,9 @@
                     if (typeof fv.rules[validators[i]] == "function") {
                         if (!fv.rules[validators[i]](el.val(), el)) {
                             error_span.text(messages[i]);
-                            el.after(error_span);
+                            if (fv.form.find("div[for=" + key + "]").length == 0) {
+                                el.after(error_span);
+                            }
                             el.addClass("validation-error");
                             failed_elements.push(el);
                             break;
