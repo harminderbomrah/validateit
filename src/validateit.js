@@ -161,8 +161,12 @@
         var _putFieldsValidatorAndMessage = function () {
             $.each(fv.elements, function (i, element) {
                 var element = $(element),
-                    validators = element.data("fv-validations").split(";").slice(0, -1),
-                    messages = element.data("fv-messages").split(";").slice(0, -1),
+                    validators = element.data("fv-validations").split(";").slice(0, -1).map(function (x) {
+                        return x.trim()
+                    }),
+                    messages = element.data("fv-messages").split(";").slice(0, -1).map(function (x) {
+                        return x.trim()
+                    }),
                     id = (typeof element.attr("id") == "undefined" ? _generateElementId(element) : element.attr("id"));
                 elements_data[id] = {};
                 elements_data[id].validators = validators;
