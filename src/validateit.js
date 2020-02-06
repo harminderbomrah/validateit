@@ -94,20 +94,25 @@
                 validators = element.validators,
                 messages = element.messages,
                 validated = true,
+                error_field = element.error_field,
                 el = dom;
             for (var i = 0; i < validators.length; i++) {
-                var error_span = (fv.form.find("div[for=" + key + "]").length ? $("div[for=" + key + "]") : $("<div class='validator_error_class text-error' for='" + key + "'></div>"));
+                var error_span = (error_field ? error_field : (fv.form.find('div[for=' + key + '].auto.validator_error_class').length ? fv.form.find('div[for=' + key + '].auto.validator_error_class') : $("<div class='auto validator_error_class text-error' for='" + key + "'></div>")));
                 if (typeof fv.rules[validators[i]] == "function") {
                     if (!fv.rules[validators[i]](el.val(), el)) {
                         error_span.text(messages[i]);
-                        if (fv.form.find("div[for=" + key + "]").length == 0){
+                        if (!error_field){
                             el.after(error_span);
                         }
                         el.addClass("validation-error");
                         validated = false;
                         break;
                     } else {
-                        error_span.remove();
+                        if (!error_field) {
+                            error_span.remove();
+                        } else {
+                            error_span.text("");
+                        }
                         el.removeClass("validation-error");
                     }
                 } else {
@@ -122,20 +127,25 @@
             $.each(elements_data, function (key, element) {
                 var validators = element.validators,
                     messages = element.messages,
+                    error_field = element.error_field,
                     el = fv.form.find("#" + key);
                 for (var i = 0; i < validators.length; i++) {
-                    var error_span = (fv.form.find("div[for=" + key + "]").length ? $("div[for=" + key + "]") : $("<div class='validator_error_class text-error' for='" + key + "'></div>"));
+                    var error_span = (error_field ? error_field : (fv.form.find('div[for=' + key + '].auto.validator_error_class').length ? fv.form.find('div[for=' + key + '].auto.validator_error_class') : $("<div class='auto validator_error_class text-error' for='" + key + "'></div>")));
                     if (typeof fv.rules[validators[i]] == "function") {
                         if (!fv.rules[validators[i]](el.val(), el)) {
                             error_span.text(messages[i]);
-                            if (fv.form.find("div[for=" + key + "]").length == 0) {
+                            if (!error_field) {
                                 el.after(error_span);
                             }
                             el.addClass("validation-error");
                             failed_elements.push(el);
                             break;
                         } else {
-                            error_span.remove();
+                            if (!error_field){
+                                error_span.remove();
+                            }else{
+                                error_span.text("");
+                            }
                             el.removeClass("validation-error");
                         }
                     } else {
@@ -169,6 +179,9 @@
                     }),
                     id = (typeof element.attr("id") == "undefined" ? _generateElementId(element) : element.attr("id"));
                 elements_data[id] = {};
+                if (fv.form.find("div[for=" + id + "]").length == 1){
+                    elements_data[id]['error_field'] = fv.form.find("div[for=" + id + "]");
+                }
                 elements_data[id].validators = validators;
                 elements_data[id].messages = messages;
             })
